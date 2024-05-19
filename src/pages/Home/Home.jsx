@@ -5,11 +5,11 @@ const Home = () => {
   return (
     <div className="bg-[#eff2f5] pb-10">
       <div className="max-w-screen-xl m-auto pt-5 ">
-      <div className="flex gap-10 ">
-        <div className="w-[70%] bg-white px-16 py-8 rounded-lg">
+      <div className="flex gap-10 flex-wrap md:flex-nowrap ">
+        <div className="md:w-[70%] w-full bg-white px-4 md:px-16 md:py-8 py-4  rounded-lg">
           <TaxCalutaor />
         </div>
-        <div className="w-[30%] rounded-lg ">
+        <div className="md:w-[30%] w-full rounded-lg ">
           <AdsBanner />
         </div>
       </div>

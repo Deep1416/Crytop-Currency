@@ -76,25 +76,25 @@ const TaxCalculator = () => {
 
   return (
     <div className="">
-      <h1 className="text-4xl font-bold text-center mb-10">
+      <h1 className="text-2xl md:text-4xl font-bold text-center mb-10">
         Free Crypto Tax Calculator Australia
       </h1>
 
-      <div className="flex gap-12 items-center">
+      <div className="flex gap-4 md:gap-12 items-center">
         <div className="w-1/2">
-          <div className="flex gap-2 items-center ">
-            <label className="text-lg w-fit inline-block shrink-0 ">
+          <div className="flex gap-2 items-center flex-col md:flex-row">
+            <label className="md:text-lg w-fit inline-block shrink-0 ">
               Financial Year
             </label>
-            <select className="bg-[#eff2f5] w-full px-2 py-2 rounded-md font-semibold">
+            <select className="bg-[#eff2f5] md:w-full  px-2 py-2 rounded-md font-semibold">
               <option value="">FY 2023-24</option>
             </select>
           </div>
         </div>
         <div className="w-1/2">
-          <div className="flex gap-2 items-center ">
-            <p className="text-lg  ">Country</p>
-            <select className="bg-[#eff2f5] py-2  px-4 rounded-md w-64 font-semibold">
+          <div className="flex gap-2 items-center flex-col md:flex-row">
+            <p className="md:text-lg w-fit inline-block shrink-0 ">Country</p>
+            <select className="bg-[#eff2f5] py-2  px-4 rounded-md md:w-64 font-semibold">
               <option value="">Australia</option>
             </select>
           </div>
@@ -104,7 +104,7 @@ const TaxCalculator = () => {
       <hr className="my-8" />
       {/* four field complete */}
       <div className="w-full">
-        <div className="flex  gap-12 items-center mt-5 w-full">
+        <div className="flex  gap-12 items-center mt-5 w-full flex-wrap md:flex-nowrap">
           <InputField
             title={"Enter purchase price of Crypto"}
             priceUser={setPurchasePrice}
@@ -114,21 +114,21 @@ const TaxCalculator = () => {
             priceUser={setSalePrice}
           />
         </div>
-        <div className="flex justify-between mt-5 gap-12">
+        <div className="flex justify-between mt-5 gap-12 flex-wrap md:flex-nowrap">
           <InputField title={"Enter your Expenses"} priceUser={setExpenses} />
-          <div className="flex flex-col gap-2 w-1/2">
+          <div className="flex flex-col gap-2 md:w-1/2 w-full">
             <p>Investment Type</p>
-            <div className="flex gap-5 w-full">
-              <div className="flex flex-col gap-1 w-1/2  ">
+            <div className="flex md:gap-5 gap-2 w-full">
+              <div className="flex flex-col gap-1 w-1/2   ">
                 <button
-                  className={`rounded-md py-2 px-4 w-full border-2  ${
+                  className={`rounded-md md:py-2 md:px-4 px-1 py-1 w-full border-2  ${
                     term === "ShortTerm"
                       ? "border-blue-700 text-blue-700"
                       : "border-slate-700 text-black"
                   }`}
                   onClick={() => setTerm("ShortTerm")}
                 >
-                  <h1 className="flex items-center gap-2 w-full font-semibold">
+                  <h1 className="flex items-center md:gap-2 w-full font-semibold">
                     Short Term{" "}
                     {term === "ShortTerm" ? (
                       <FaCheck className="inline-block" />
@@ -141,14 +141,14 @@ const TaxCalculator = () => {
               </div>
               <div className="flex flex-col gap-1 w-1/2">
                 <button
-                  className={`rounded-md py-2 px-4 w-full border-2  ${
+                  className={`rounded-md md:py-2 md:px-4 px-1 py-1 w-full border-2  ${
                     term === "LongTerm"
                       ? "border-blue-700 text-blue-700"
                       : "border-slate-700 text-black"
                   }`}
                   onClick={() => setTerm("LongTerm")}
                 >
-                  <h1 className="flex items-center gap-2 w-full font-semibold">
+                  <h1 className="flex items-center md:gap-2 w-full font-semibold">
                     Long Term{" "}
                     {term === "LongTerm" ? (
                       <FaCheck className="inline-block" />
@@ -165,8 +165,8 @@ const TaxCalculator = () => {
       </div>
       {/* next filed */}
       <div className="mt-10 w-full">
-        <div className="flex gap-12 items-center">
-          <div className="flex flex-col gap-2 w-1/2">
+        <div className="flex md:flex-nowrap flex-wrap gap-12 items-center">
+          <div className="flex flex-col gap-2 md:w-1/2 w-full">
             <label htmlFor="selec">Select Your Annual Income</label>
             <select
               id="selec"
@@ -182,20 +182,20 @@ const TaxCalculator = () => {
               <option value="180001+">$180,001+</option>
             </select>
           </div>
-          <div className="flex flex-col gap-2 w-1/2">
+          <div className="flex flex-col gap-2 md:w-1/2 w-full">
             <p>Tax Rate</p>
             <p className="font-semibold">{taxRate}</p>
           </div>
         </div>
         {term === "LongTerm" ? (
-          <div className="flex gap-12 items-center w-full mt-10">
-            <div className="flex flex-col gap-2 w-1/2">
+          <div className="flex gap-12 flex-wrap md:flex-nowrap items-center w-full mt-10">
+            <div className="flex flex-col gap-2 md:w-1/2 w-full">
               <p>Capital gains amount</p>
               <div className="bg-[#eff2f5] px-3 py-3 w-full rounded-md font-semibold text-xl">
                $  {capitalGain}
               </div>
             </div>
-            <div className="flex flex-col gap-2 w-1/2">
+            <div className="flex flex-col gap-2 md:w-1/2 w-full">
               <p>Discount For Long Terms Gain</p>
               <div className="bg-[#eff2f5] px-3 py-3 w-full rounded-md font-semibold text-xl">
               $  {discountForLongTerm}
@@ -204,12 +204,12 @@ const TaxCalculator = () => {
           </div>
         ) : null}
       </div>
-      <div className="flex mt-10 items-center w-full gap-12">
-        <div className="flex flex-col items-center bg-[#EBF9F4] px-10 py-5 gap-2 w-1/2 rounded-md text-xl font-semibold">
+      <div className="flex mt-10 items-center w-full gap-12 flex-wrap md:flex-nowrap">
+        <div className="flex flex-col items-center bg-[#EBF9F4] px-4 md:px-10 py-5 gap-2 md:w-1/2  w-fullrounded-md text-xl font-semibold">
           <p>Net Capital gains tax amount</p>
           <p className="text-[#0fba83]">$ {netCapitalGain}</p>
         </div>
-        <div className="flex flex-col items-center bg-[#EBF2FF] px-10 py-5 gap-2 w-1/2 rounded-md text-xl font-semibold">
+        <div className="flex flex-col items-center bg-[#EBF2FF] px-4 md:px-10 py-5 gap-2 md:w-1/2 w-full rounded-md text-xl font-semibold">
           <p>The tax you need to pay*</p>
           <p className="text-[#0141cf]">{taxPay.toFixed(2)}</p>
         </div>
